@@ -1,3 +1,9 @@
+var chai = require('chai')
+var sinon = require('sinon')
+var expect = chai.expect
+
+chai.use(require('sinon-chai'))
+
 var BemEntity = require('./index')
 
 describe('shared/bem', function () {
@@ -271,8 +277,8 @@ describe('shared/bem', function () {
         })
 
         it('calls static `block` method with instance variables', function () {
-          var BemEntity = BemEntity('block', BemEntity.CLASSNAME_MODE)
-          expect(BemEntity.block('mod'))
+          var entity = BemEntity('block', BemEntity.CLASSNAME_MODE)
+          expect(entity.block('mod'))
           .to.equal('block block--mod')
           expect(BemEntity.block)
           .to.have.been.calledOnceWith('block', 'mod', BemEntity.CLASSNAME_MODE)
@@ -289,8 +295,8 @@ describe('shared/bem', function () {
         })
 
         it('calls static `element` method with instance variables', function () {
-          var BemEntity = BemEntity('block', BemEntity.SELECTOR_MODE)
-          expect(BemEntity.element('element', 'mod'))
+          var entity = BemEntity('block', BemEntity.SELECTOR_MODE)
+          expect(entity.element('element', 'mod'))
           .to.equal('.block__element.block__element--mod')
           expect(BemEntity.element)
           .to.have.been.calledOnceWith('block', 'element', 'mod', BemEntity.SELECTOR_MODE)
@@ -309,8 +315,8 @@ describe('shared/bem', function () {
         })
 
         it('calls static `blockClassName` method with instance block name and ignores preferredMode', function () {
-          var BemEntity = BemEntity('block', BemEntity.SELECTOR_MODE)
-          expect(BemEntity.blockClassName('mod'))
+          var entity = BemEntity('block', BemEntity.SELECTOR_MODE)
+          expect(entity.blockClassName('mod'))
           .to.equal('block block--mod')
           expect(BemEntity.blockClassName)
           .to.have.been.calledOnceWith('block', 'mod')
@@ -327,8 +333,8 @@ describe('shared/bem', function () {
         })
 
         it('calls static `blockSelector` method with instance block name and ignores preferredMode', function () {
-          var BemEntity = BemEntity('block', BemEntity.CLASSNAME_MODE)
-          expect(BemEntity.blockSelector('mod'))
+          var entity = BemEntity('block', BemEntity.CLASSNAME_MODE)
+          expect(entity.blockSelector('mod'))
           .to.equal('.block.block--mod')
           expect(BemEntity.blockSelector)
           .to.have.been.calledOnceWith('block', 'mod')
@@ -345,8 +351,8 @@ describe('shared/bem', function () {
         })
 
         it('calls static `elementClassName` method with instance block name and ignores preferredMode', function () {
-          var BemEntity = BemEntity('block', BemEntity.SELECTOR_MODE)
-          expect(BemEntity.elementClassName('element', 'mod'))
+          var entity = BemEntity('block', BemEntity.SELECTOR_MODE)
+          expect(entity.elementClassName('element', 'mod'))
           .to.equal('block__element block__element--mod')
           expect(BemEntity.elementClassName)
           .to.have.been.calledOnceWith('block', 'element', 'mod')
@@ -363,8 +369,8 @@ describe('shared/bem', function () {
         })
 
         it('calls static `elementSelector` method with instance block name and ignores preferredMode', function () {
-          var BemEntity = BemEntity('block', BemEntity.CLASSNAME_MODE)
-          expect(BemEntity.elementSelector('element', 'mod'))
+          var entity = BemEntity('block', BemEntity.CLASSNAME_MODE)
+          expect(entity.elementSelector('element', 'mod'))
           .to.equal('.block__element.block__element--mod')
           expect(BemEntity.elementSelector)
           .to.have.been.calledOnceWith('block', 'element', 'mod')
