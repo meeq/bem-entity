@@ -1,0 +1,22 @@
+{
+  "name": "bem-entity",
+  "version": "1.0.0",
+  "description": "Easily and consistently create BEM classNames and selectors",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha index.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mix/bem-entity.git"
+  },
+  "keywords": [
+    "BEM"
+  ],
+  "author": "Christopher Bonhage <chris@mix.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mix/bem-entity/issues"
+  },
+  "homepage": "https://github.com/mix/bem-entity#readme"
+}
